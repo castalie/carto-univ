@@ -89,7 +89,7 @@
     }
 
     .no-fill path {
-      fill : #BD906F;
+      fill : transparent;
       border : none;
     }
 
@@ -200,7 +200,8 @@
     // add zoom controls
     L.control.zoom({ position:'topright' }).addTo(map);
 
-    let url = 'http://tile.thunderforest.com/transport/{z}/{x}/{y}.png'
+    let url ='http://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.png'
+    /*let url = 'http://tile.thunderforest.com/transport/{z}/{x}/{y}.png'*/
     let attribution = '&copy; <a href="http://www.thunderforest.com/">Thunderforest</a>, &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 
     const tiles = L.tileLayer(url, {
@@ -208,7 +209,7 @@
         minZoom: 0,
       	maxZoom: 20,
       	ext: 'png'
-    })
+    }).addTo(map)
 
 
     // create d3 map layout from leaflet
